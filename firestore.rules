@@ -1,0 +1,73 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Default deny all unknown collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Projects collection
+    match /projects/{projectId} {
+      // Public read if published; Admin can read all
+      allow get: if (resource.data.isPublished == true) || isSignedIn();
+      allow list: if isSignedIn() || (resource.data.isPublished == true);
+      // Admin only write
+      allow create, update, delete: if isSignedIn();
+    }
+
+    // Certificates collection
+    match /certificates/{certificateId} {
+      allow get: if (resource.data.isPublished == true) || isSignedIn();
+      allow list: if isSignedIn() || (resource.data.isPublished == true);
+      allow create, update, delete: if isSignedIn();
+    }
+
+    // Work experience collection
+    match /experience/{experienceId} {
+      allow get: if (resource.data.isPublished == true) || isSignedIn();
+      allow list: if isSignedIn() || (resource.data.isPublished == true);
+      allow create, update, delete: if isSignedIn();
+    }
+
+    // Skills collection
+    match /skills/{skillId} {
+      allow get: if (resource.data.isPublished == true) || isSignedIn();
+      allow list: if isSignedIn() || (resource.data.isPublished == true);
+      allow create, update, delete: if isSignedIn();
+    }
+
+    // Education collection
+    match /education/{educationId} {
+      allow get: if (resource.data.isPublished == true) || isSignedIn();
+      allow list: if isSignedIn() || (resource.data.isPublished == true);
+      allow create, update, delete: if isSignedIn();
+    }
+
+    // Profile settings document
+    match /settings/profile {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // Contact messages collection
+    match /contactMessages/{messageId} {
+      // Anyone can create a contact message with validation
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'message', 'status'])
+        && request.resource.data.name is string && request.resource.data.name.size() <= 100
+        && request.resource.data.email is string && request.resource.data.email.size() <= 150
+        && request.resource.data.message is string && request.resource.data.message.size() <= 4000
+        && request.resource.data.status in ['new', 'read', 'archived'];
+      // Only authenticated admin can read, update status, or delete messages
+      allow read, update, delete: if isSignedIn();
+    }
+  }
+}

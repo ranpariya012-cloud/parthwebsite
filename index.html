@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parth Ranpariya - Data Analyst & Developer Portfolio</title>
+    <meta name="description" content="Portfolio website and secure administrator CMS for Parth Ranpariya, Data Analyst & Full Stack Developer." />
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Parth Ranpariya - Data Analyst & Developer Portfolio" />
+    <meta property="og:description" content="Portfolio website and secure administrator CMS for Parth Ranpariya, Data Analyst & Full Stack Developer." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Bootstrap 5 CSS & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    
+    <!-- Custom Theme Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+      <div class="container">
+        <!-- Brand Wordmark -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <span class="text-gradient fw-bold">Parth Ranpariya</span>
+        </a>
+
+        <!-- Mobile Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portfolioNav" aria-controls="portfolioNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-4"></i>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="portfolioNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <a href="/assets/aistudio/Professional_Modern_CV_Resume_0bfae04d.pdf" target="_blank" class="btn btn-outline-custom text-xs">
+              <i class="bi bi-download"></i> CV Resume
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrPDUqTh4ggaxmevaGOQclwFCkW5KblePrCAQCYezzbMeLWw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">
+              <i class="bi bi-chat-text"></i> Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="hero-badge mb-3">
+              <i class="bi bi-bar-chart-fill text-cyan"></i> Data Analyst & Web Developer
+            </div>
+            <h1 class="hero-title" id="hero-title">
+              Hi, I'm <span class="text-gradient">Parth Ranpariya</span>
+            </h1>
+            <p class="hero-subtitle mb-3" id="hero-subtitle">
+              Currently working as a Data Analyst, with practical knowledge of SQL, Excel, and data analysis. I work with data to find useful insights, prepare reports, and support better decision-making.
+            </p>
+
+            <!-- Animated Tool Pills -->
+            <div class="tools-floating-row mb-4">
+              <span class="tool-badge-animated tool-sql">
+                <i class="bi bi-database-fill-gear"></i> SQL
+              </span>
+              <span class="tool-badge-animated tool-excel">
+                <i class="bi bi-file-earmark-spreadsheet-fill"></i> MS Excel
+              </span>
+              <span class="tool-badge-animated tool-powerbi">
+                <i class="bi bi-bar-chart-line-fill"></i> Power BI
+              </span>
+              <span class="tool-badge-animated tool-python">
+                <i class="bi bi-filetype-py"></i> Python
+              </span>
+              <span class="tool-badge-animated tool-data">
+                <i class="bi bi-pie-chart-fill"></i> Data Analysis
+              </span>
+              <span class="tool-badge-animated tool-shopify">
+                <i class="bi bi-bag-check-fill"></i> Shopify & Web
+              </span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a href="#projects" class="btn btn-cyan">
+                <i class="bi bi-layers"></i> View Projects
+              </a>
+              <a href="/assets/aistudio/Professional_Modern_CV_Resume_0bfae04d.pdf" target="_blank" id="resume-btn" class="btn btn-outline-custom">
+                <i class="bi bi-file-earmark-pdf"></i> View Resume (PDF)
+              </a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrPDUqTh4ggaxmevaGOQclwFCkW5KblePrCAQCYezzbMeLWw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom">
+                <i class="bi bi-chat-dots-fill text-cyan"></i> Get in Touch (Google Form)
+              </a>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center gap-3 text-muted-custom pt-2">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-telephone text-cyan"></i>
+                <a href="tel:+919723198913" class="text-muted-custom text-decoration-none text-sm fw-medium">+91 9723198913</a>
+              </div>
+              <span class="text-dim">·</span>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-envelope text-cyan"></i>
+                <a href="mailto:ranpariya012@gmail.com" class="text-muted-custom text-decoration-none text-sm fw-medium">ranpariya012@gmail.com</a>
+              </div>
+              <span class="text-dim">·</span>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-geo-alt text-cyan"></i>
+                <span class="text-sm">Ahmedabad, Gujarat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 text-center">
+            <div class="hero-3d-wrapper">
+              <!-- Ambient Neon Gradient Glow -->
+              <div class="hero-3d-glow"></div>
+
+              <!-- Floating Micro-badge Top Right -->
+              <div class="hero-floating-pill float-pill-top">
+                <i class="bi bi-bar-chart-fill text-cyan"></i> Power BI & SQL Analytics
+              </div>
+
+              <!-- Main 3D Data Visual Graphic -->
+              <div class="hero-3d-card">
+                <img src="/assets/aistudio/image_38d0524a.png" alt="Data Analytics & BI Visualization - Parth Ranpariya" class="hero-3d-img" />
+              </div>
+
+              <!-- Floating Micro-badge Bottom Left -->
+              <div class="hero-floating-pill float-pill-bottom">
+                <span class="live-pulse-dot me-1"></span> 1.2M+ Data Points Mapped
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics Strip -->
+    <div class="stat-strip">
+      <div class="container">
+        <div class="row text-center g-4">
+          <div class="col-6 col-md-3 stat-item">
+            <h3 id="stat-proj-count">5+</h3>
+            <p>Data & Web Projects</p>
+          </div>
+          <div class="col-6 col-md-3 stat-item">
+            <h3 id="stat-tech-count">10+</h3>
+            <p>Core Analytical Tools</p>
+          </div>
+          <div class="col-6 col-md-3 stat-item">
+            <h3>100%</h3>
+            <p>Practical Insights</p>
+          </div>
+          <div class="col-6 col-md-3 stat-item">
+            <h3>BCA</h3>
+            <p>Gujarat University</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated Tools Marquee Ticker -->
+    <div id="tools" class="tools-marquee-container">
+      <div class="tools-marquee-track">
+        <span class="marquee-item"><i class="bi bi-database-fill-gear text-cyan"></i> SQL (MySQL & PostgreSQL)</span>
+        <span class="marquee-item"><i class="bi bi-file-earmark-spreadsheet-fill text-success"></i> Microsoft Excel (Advanced Analytics)</span>
+        <span class="marquee-item"><i class="bi bi-bar-chart-line-fill text-warning"></i> Power BI (Interactive Dashboards)</span>
+        <span class="marquee-item"><i class="bi bi-filetype-py text-info"></i> Python (Pandas & Data Processing)</span>
+        <span class="marquee-item"><i class="bi bi-pie-chart-fill text-purple" style="color: #c084fc;"></i> Data Analysis & Visual Reporting</span>
+        <span class="marquee-item"><i class="bi bi-bag-check-fill text-teal" style="color: #2dd4bf;"></i> Shopify & Liquid Theme Development</span>
+        <span class="marquee-item"><i class="bi bi-code-slash text-danger"></i> Frontend (HTML5, CSS3, JavaScript)</span>
+        <span class="marquee-item"><i class="bi bi-server text-primary"></i> PHP & MySQL Backend</span>
+        <span class="marquee-item"><i class="bi bi-headset text-cyan"></i> Inbound Support & CRM Analytics</span>
+        <!-- Duplicated track items for seamless infinite marquee loop -->
+        <span class="marquee-item"><i class="bi bi-database-fill-gear text-cyan"></i> SQL (MySQL & PostgreSQL)</span>
+        <span class="marquee-item"><i class="bi bi-file-earmark-spreadsheet-fill text-success"></i> Microsoft Excel (Advanced Analytics)</span>
+        <span class="marquee-item"><i class="bi bi-bar-chart-line-fill text-warning"></i> Power BI (Interactive Dashboards)</span>
+        <span class="marquee-item"><i class="bi bi-filetype-py text-info"></i> Python (Pandas & Data Processing)</span>
+        <span class="marquee-item"><i class="bi bi-pie-chart-fill text-purple" style="color: #c084fc;"></i> Data Analysis & Visual Reporting</span>
+        <span class="marquee-item"><i class="bi bi-bag-check-fill text-teal" style="color: #2dd4bf;"></i> Shopify & Liquid Theme Development</span>
+      </div>
+    </div>
+
+
+    <!-- 3. Professional Experience Section -->
+    <section id="experience" class="py-5 my-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-tag">Work History</div>
+          <h2 class="section-title text-white">Experience & Roles</h2>
+        </div>
+        <div id="experience-timeline" class="timeline">
+          <!-- Populated dynamically by portfolio.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Projects Section -->
+    <section id="projects" class="py-5 my-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-tag">Featured Work</div>
+          <h2 class="section-title text-white">Projects & Practical Implementations</h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-btn-group">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="Data Analytics">Data Analytics & BI</button>
+          <button class="filter-btn" data-filter="Web Development">Web Development</button>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="row g-4" id="projects-container">
+          <!-- Populated dynamically by portfolio.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Technical Skills & Animated Tools -->
+    <section id="skills" class="py-5 my-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-tag">Core Competencies</div>
+          <h2 class="section-title text-white">Technical Skills & Tooling</h2>
+        </div>
+        <div class="row g-3 justify-content-center" id="skills-container">
+          <!-- Populated dynamically by portfolio.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Education Section -->
+    <section id="education" class="py-5 my-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-tag">Academic Qualifications</div>
+          <h2 class="section-title text-white">Education & Training</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-10" id="education-container">
+            <!-- Populated dynamically by portfolio.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Certificates & Credentials -->
+    <section id="certificates" class="py-5 my-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-tag">Credentials</div>
+          <h2 class="section-title text-white">Certificates & Achievements</h2>
+        </div>
+        <div class="row g-4 justify-content-center" id="certificates-container">
+          <!-- Populated dynamically by portfolio.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Contact Section -->
+    <section id="contact" class="py-5 my-5">
+      <div class="container">
+        <div class="section-title-wrap">
+          <div class="section-tag">Get In Touch</div>
+          <h2 class="section-title text-white">Contact Parth Ranpariya</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="glass-card p-4 p-md-5">
+              <div class="d-flex flex-wrap gap-4 justify-content-between mb-4 pb-3 border-bottom border-secondary">
+                <div>
+                  <div class="text-xs text-dim text-uppercase">Phone Call / WhatsApp</div>
+                  <a href="tel:+919723198913" class="text-cyan fw-bold text-decoration-none fs-5">
+                    <i class="bi bi-telephone-fill me-1"></i> +91 9723198913
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs text-dim text-uppercase">Email Inquiries</div>
+                  <a href="mailto:ranpariya012@gmail.com" class="text-cyan fw-bold text-decoration-none fs-5">
+                    <i class="bi bi-envelope-fill me-1"></i> ranpariya012@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <!-- Google Form Direct Action Hub -->
+              <div class="text-center py-4 px-2">
+                <div class="mb-3">
+                  <span class="d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 64px; height: 64px; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.3); color: #06b6d4; font-size: 2rem; box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);">
+                    <i class="bi bi-ui-checks"></i>
+                  </span>
+                </div>
+                <h3 class="h4 text-white fw-bold mb-2">Connect via Official Inquiry Form</h3>
+                <p class="text-muted-custom mb-4 mx-auto" style="max-width: 540px; font-size: 0.95rem;">
+                  Click below to open the official Google Form to submit your project requirements, data analysis queries, or freelance opportunities directly to Parth Ranpariya.
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrPDUqTh4ggaxmevaGOQclwFCkW5KblePrCAQCYezzbMeLWw/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn btn-cyan btn-lg px-4 py-3 fw-bold d-inline-flex align-items-center gap-2 shadow-sm">
+                    <i class="bi bi-box-arrow-up-right"></i> Fill Google Form Now
+                  </a>
+                  <a href="https://wa.me/919723198913" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom px-4 py-3 d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-whatsapp text-success fs-5"></i> Chat on WhatsApp
+                  </a>
+                  <a href="mailto:ranpariya012@gmail.com" class="btn btn-outline-custom px-4 py-3 d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-envelope-at text-cyan fs-5"></i> Email Directly
+                  </a>
+                </div>
+
+                <div class="text-dim text-xs">
+                  <i class="bi bi-shield-check text-cyan me-1"></i> Responses are delivered directly to Parth's verified inbox
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-wrap">
+      <div class="container">
+        <div class="row align-items-center justify-content-between g-3">
+          <div class="col-md-6 text-center text-md-start">
+            <div class="fw-bold text-white mb-1">Parth Ranpariya</div>
+            <p class="text-dim text-xs mb-0" id="footer-custom-text">
+              Data Analyst & Web Developer · Ahmedabad, Gujarat. All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end d-flex align-items-center justify-content-center justify-content-md-end gap-3">
+            <a href="tel:+919723198913" class="social-link" title="Call Parth"><i class="bi bi-telephone"></i></a>
+            <a href="mailto:ranpariya012@gmail.com" class="social-link" title="Email Parth"><i class="bi bi-envelope"></i></a>
+            <a href="/assets/aistudio/Professional_Modern_CV_Resume_0bfae04d.pdf" target="_blank" class="social-link" title="Download Resume"><i class="bi bi-file-earmark-pdf"></i></a>
+            
+            <!-- Administrator Access Button -->
+            <button type="button" class="admin-lock-btn" data-bs-toggle="modal" data-bs-target="#adminLoginModal" aria-label="Administrator login" title="Administrator Login">
+              <i class="bi bi-shield-lock"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Administrator Login Modal -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+          <div class="modal-header modal-header-dark">
+            <h5 class="modal-title fw-bold text-white" id="adminLoginModalLabel">
+              <i class="bi bi-shield-lock text-cyan me-2"></i>Administrator Login
+            </h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="admin-modal-login-form">
+            <div class="modal-body modal-body-dark">
+              <div class="alert alert-info py-2 text-xs mb-3">
+                <i class="bi bi-info-circle me-1"></i> Authorized CMS Access. Username: <code>admin</code> (Mapped to <code>ranpariya012@gmail.com</code>)
+              </div>
+              <div class="mb-3">
+                <label for="admin-modal-username" class="form-label text-white text-sm">Username or Email</label>
+                <input type="text" id="admin-modal-username" name="username" class="form-control form-control-dark" placeholder="admin" required />
+              </div>
+              <div class="mb-3">
+                <label for="admin-modal-password" class="form-label text-white text-sm">Password</label>
+                <input type="password" id="admin-modal-password" name="password" class="form-control form-control-dark" placeholder="••••••••" required />
+              </div>
+              <div id="admin-login-error" class="alert alert-danger py-2 text-xs d-none"></div>
+            </div>
+            <div class="modal-footer modal-footer-dark justify-content-between">
+              <a href="/admin/login.html" class="text-dim text-xs text-decoration-none hover-underline">Dedicated Login Page</a>
+              <button type="submit" class="btn btn-cyan">
+                <i class="bi bi-box-arrow-in-right"></i> Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Modular JavaScript Engine -->
+    <script type="module" src="/js/portfolio.js"></script>
+  </body>
+</html>

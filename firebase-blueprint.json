@@ -1,0 +1,160 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "Portfolio project item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 150 },
+        "description": { "type": "string", "maxLength": 3000 },
+        "category": { "type": "string", "enum": ["Full Stack", "Python & Backend", "AI & Machine Learning", "Tools & Utilities"] },
+        "technologies": { "type": "string", "maxLength": 300 },
+        "imageUrl": { "type": "string", "maxLength": 1000 },
+        "demoUrl": { "type": "string", "maxLength": 500 },
+        "githubUrl": { "type": "string", "maxLength": 500 },
+        "isFeatured": { "type": "boolean" },
+        "isPublished": { "type": "boolean" },
+        "order": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "description", "category", "isPublished"]
+    },
+    "Certificate": {
+      "title": "Certificate",
+      "description": "Professional certificate or credential",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string", "maxLength": 200 },
+        "issuer": { "type": "string", "maxLength": 150 },
+        "issueDate": { "type": "string", "maxLength": 50 },
+        "credentialId": { "type": "string", "maxLength": 100 },
+        "verificationUrl": { "type": "string", "maxLength": 500 },
+        "imageUrl": { "type": "string", "maxLength": 1000 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "isPublished": { "type": "boolean" },
+        "order": { "type": "number" }
+      },
+      "required": ["title", "issuer", "isPublished"]
+    },
+    "Experience": {
+      "title": "Experience",
+      "description": "Professional work experience entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "role": { "type": "string", "maxLength": 150 },
+        "company": { "type": "string", "maxLength": 150 },
+        "location": { "type": "string", "maxLength": 100 },
+        "employmentType": { "type": "string", "maxLength": 50 },
+        "startDate": { "type": "string", "maxLength": 50 },
+        "endDate": { "type": "string", "maxLength": 50 },
+        "isCurrent": { "type": "boolean" },
+        "description": { "type": "string", "maxLength": 2000 },
+        "technologies": { "type": "string", "maxLength": 300 },
+        "isPublished": { "type": "boolean" },
+        "order": { "type": "number" }
+      },
+      "required": ["role", "company", "startDate", "isPublished"]
+    },
+    "Skill": {
+      "title": "Skill",
+      "description": "Technical skill and tooling item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "category": { "type": "string", "enum": ["Languages & Frameworks", "AI & Data Science", "Databases & Cloud", "Developer Tools"] },
+        "iconClass": { "type": "string", "maxLength": 80 },
+        "order": { "type": "number" },
+        "isPublished": { "type": "boolean" }
+      },
+      "required": ["name", "category", "isPublished"]
+    },
+    "Education": {
+      "title": "Education",
+      "description": "Academic education record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "institution": { "type": "string", "maxLength": 150 },
+        "degree": { "type": "string", "maxLength": 150 },
+        "fieldOfStudy": { "type": "string", "maxLength": 150 },
+        "startDate": { "type": "string", "maxLength": 50 },
+        "endDate": { "type": "string", "maxLength": 50 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "order": { "type": "number" },
+        "isPublished": { "type": "boolean" }
+      },
+      "required": ["institution", "degree", "isPublished"]
+    },
+    "Profile": {
+      "title": "Profile",
+      "description": "Portfolio owner biography and contact metadata",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string", "maxLength": 100 },
+        "title": { "type": "string", "maxLength": 150 },
+        "heroSubtitle": { "type": "string", "maxLength": 500 },
+        "about": { "type": "string", "maxLength": 3000 },
+        "email": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "location": { "type": "string", "maxLength": 100 },
+        "github": { "type": "string", "maxLength": 300 },
+        "linkedin": { "type": "string", "maxLength": 300 },
+        "kaggle": { "type": "string", "maxLength": 300 },
+        "resumeUrl": { "type": "string", "maxLength": 500 },
+        "avatarUrl": { "type": "string", "maxLength": 1000 },
+        "footerText": { "type": "string", "maxLength": 300 }
+      },
+      "required": ["displayName", "title", "email"]
+    },
+    "ContactMessage": {
+      "title": "ContactMessage",
+      "description": "Incoming message submitted from the contact form",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 150 },
+        "subject": { "type": "string", "maxLength": 200 },
+        "message": { "type": "string", "maxLength": 4000 },
+        "status": { "type": "string", "enum": ["new", "read", "archived"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "email", "message", "status"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Portfolio projects collection"
+    },
+    "/certificates/{certificateId}": {
+      "schema": "Certificate",
+      "description": "Verified certificates collection"
+    },
+    "/experience/{experienceId}": {
+      "schema": "Experience",
+      "description": "Work experience entries collection"
+    },
+    "/skills/{skillId}": {
+      "schema": "Skill",
+      "description": "Technical skills collection"
+    },
+    "/education/{educationId}": {
+      "schema": "Education",
+      "description": "Educational credentials collection"
+    },
+    "/settings/profile": {
+      "schema": "Profile",
+      "description": "Global portfolio configuration and owner details"
+    },
+    "/contactMessages/{messageId}": {
+      "schema": "ContactMessage",
+      "description": "Contact form submissions"
+    }
+  }
+}
