@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administrator Dashboard - Parth Ranpariya CMS</title>
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="admin-body">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar Navigation -->
+        <aside class="col-md-3 col-lg-2 admin-sidebar d-flex flex-column">
+          <div class="mb-4 px-2 d-flex align-items-center gap-3">
+            <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--admin-cyan); flex-shrink: 0; box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);">
+              <img src="/assets/aistudio/parth_4b9116ca.jpeg" alt="Parth Ranpariya" style="width: 100%; height: 100%; object-fit: cover; object-position: center 18%;" />
+            </div>
+            <div>
+              <h5 class="fw-bold text-white mb-0 fs-6">Parth Ranpariya</h5>
+              <span class="text-xs text-cyan font-mono">Administrator CMS</span>
+            </div>
+          </div>
+
+          <nav class="nav flex-column flex-grow-1">
+            <a href="#" class="admin-nav-item active" data-tab="overview">
+              <i class="bi bi-grid-1x2"></i> Overview
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="projects">
+              <i class="bi bi-layers"></i> Projects
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="certificates">
+              <i class="bi bi-award"></i> Certificates
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="experience">
+              <i class="bi bi-briefcase"></i> Experience
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="skills">
+              <i class="bi bi-cpu"></i> Skills
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="education">
+              <i class="bi bi-mortarboard"></i> Education
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="profile">
+              <i class="bi bi-person-gear"></i> Profile & SEO
+            </a>
+            <a href="#" class="admin-nav-item" data-tab="messages">
+              <i class="bi bi-inbox"></i> Messages
+              <span id="badge-new-messages" class="badge bg-danger rounded-pill ms-auto" style="display: none;">0</span>
+            </a>
+          </nav>
+
+          <div class="mt-auto pt-3 border-top border-secondary px-2">
+            <div class="text-xs text-muted mb-2 text-truncate" id="admin-user-email">ranpariya012@gmail.com</div>
+            <div class="d-flex gap-2">
+              <a href="/" target="_blank" class="btn btn-sm btn-outline-custom flex-grow-1 text-xs" title="Open Public Portfolio">
+                <i class="bi bi-box-arrow-up-right me-1"></i> Live Site
+              </a>
+              <button id="btn-admin-logout" class="btn btn-sm btn-danger text-xs" title="Sign Out">
+                <i class="bi bi-box-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="col-md-9 col-lg-10 p-4 p-md-5 overflow-auto" style="min-height: 100vh;">
+          <!-- Security Callout -->
+          <div class="alert alert-warning py-2 px-3 text-xs d-flex align-items-center justify-content-between mb-4 border-warning">
+            <div>
+              <i class="bi bi-shield-exclamation me-1 fw-bold"></i>
+              <strong>Security Notice:</strong> Temporary password in use (<code>parth1221</code>). Ensure Firebase Auth rules are configured in production.
+            </div>
+            <button class="btn btn-xs btn-outline-warning text-xs py-0" onclick="window.resetAllDemoData()">
+              Reset Demo Content
+            </button>
+          </div>
+
+          <!-- ================= TAB: OVERVIEW ================= -->
+          <div id="tab-overview" class="admin-tab-pane">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-1">Portfolio CMS Overview</h2>
+                <p class="text-muted text-sm mb-0">Real-time statistics & synchronized portfolio records.</p>
+              </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="row g-4 mb-4">
+              <div class="col-6 col-lg-3">
+                <div class="admin-stat-card d-flex align-items-center gap-3">
+                  <div class="stat-icon-wrap stat-icon-cyan"><i class="bi bi-layers"></i></div>
+                  <div>
+                    <h3 class="h4 fw-bold mb-0 text-white" id="stat-total-projects">0</h3>
+                    <span class="text-xs text-muted">Projects</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="admin-stat-card d-flex align-items-center gap-3">
+                  <div class="stat-icon-wrap stat-icon-blue"><i class="bi bi-award"></i></div>
+                  <div>
+                    <h3 class="h4 fw-bold mb-0 text-white" id="stat-total-certs">0</h3>
+                    <span class="text-xs text-muted">Certificates</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="admin-stat-card d-flex align-items-center gap-3">
+                  <div class="stat-icon-wrap stat-icon-green"><i class="bi bi-briefcase"></i></div>
+                  <div>
+                    <h3 class="h4 fw-bold mb-0 text-white" id="stat-total-exp">0</h3>
+                    <span class="text-xs text-muted">Experience Entries</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-lg-3">
+                <div class="admin-stat-card d-flex align-items-center gap-3">
+                  <div class="stat-icon-wrap stat-icon-purple"><i class="bi bi-inbox"></i></div>
+                  <div>
+                    <h3 class="h4 fw-bold mb-0 text-white" id="stat-total-messages">0</h3>
+                    <span class="text-xs text-muted">Inquiries</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Action Cards -->
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="admin-card p-4">
+                  <h4 class="h6 fw-bold text-white mb-3"><i class="bi bi-cloud-arrow-up text-cyan me-2"></i>Database Synchronization</h4>
+                  <p class="text-muted text-sm mb-3">All modifications made in this CMS update the public website automatically. Unpublished records remain hidden from visitors.</p>
+                  <a href="/" target="_blank" class="btn btn-sm btn-cyan">
+                    <i class="bi bi-eye"></i> View Live Portfolio
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="admin-card p-4">
+                  <h4 class="h6 fw-bold text-white mb-3"><i class="bi bi-file-earmark-code text-cyan me-2"></i>Firebase Rules & Storage</h4>
+                  <p class="text-muted text-sm mb-3">Security rules in <code>firestore.rules</code> restrict write operations to verified admin sessions while granting public read access to published items.</p>
+                  <span class="badge bg-success">Security Rules Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= TAB: PROJECTS ================= -->
+          <div id="tab-projects" class="admin-tab-pane d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-1">Projects Management</h2>
+                <p class="text-muted text-sm mb-0">Create, edit, reorder, and publish portfolio projects.</p>
+              </div>
+              <button id="btn-add-project" class="btn btn-sm btn-cyan">
+                <i class="bi bi-plus-lg"></i> Add Project
+              </button>
+            </div>
+
+            <div class="admin-card">
+              <div class="table-responsive">
+                <table class="table admin-table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Category</th>
+                      <th>Technologies</th>
+                      <th>Status</th>
+                      <th>Order</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-projects-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= TAB: CERTIFICATES ================= -->
+          <div id="tab-certificates" class="admin-tab-pane d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-1">Certificates & Achievements</h2>
+                <p class="text-muted text-sm mb-0">Manage verified certifications, credentials, and issuance records.</p>
+              </div>
+              <button id="btn-add-cert" class="btn btn-sm btn-cyan">
+                <i class="bi bi-plus-lg"></i> Add Certificate
+              </button>
+            </div>
+
+            <div class="admin-card">
+              <div class="table-responsive">
+                <table class="table admin-table">
+                  <thead>
+                    <tr>
+                      <th>Certificate Title</th>
+                      <th>Issuing Body</th>
+                      <th>Issue Date</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-certs-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= TAB: EXPERIENCE ================= -->
+          <div id="tab-experience" class="admin-tab-pane d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-1">Professional Experience</h2>
+                <p class="text-muted text-sm mb-0">Manage employment timeline and career achievements.</p>
+              </div>
+              <button id="btn-add-exp" class="btn btn-sm btn-cyan">
+                <i class="bi bi-plus-lg"></i> Add Experience
+              </button>
+            </div>
+
+            <div class="admin-card">
+              <div class="table-responsive">
+                <table class="table admin-table">
+                  <thead>
+                    <tr>
+                      <th>Role</th>
+                      <th>Company</th>
+                      <th>Timeline</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-exp-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= TAB: SKILLS ================= -->
+          <div id="tab-skills" class="admin-tab-pane d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-1">Technical Skills & Tools</h2>
+                <p class="text-muted text-sm mb-0">Organize skills, categories, and icon identifiers.</p>
+              </div>
+              <button id="btn-add-skill" class="btn btn-sm btn-cyan">
+                <i class="bi bi-plus-lg"></i> Add Skill
+              </button>
+            </div>
+
+            <div class="admin-card">
+              <div class="table-responsive">
+                <table class="table admin-table">
+                  <thead>
+                    <tr>
+                      <th>Skill Name</th>
+                      <th>Category</th>
+                      <th>Icon Class</th>
+                      <th>Status</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-skills-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= TAB: EDUCATION ================= -->
+          <div id="tab-education" class="admin-tab-pane d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div>
+                <h2 class="h4 fw-bold text-white mb-1">Education Management</h2>
+                <p class="text-muted text-sm mb-0">Academic qualifications, universities, and degrees.</p>
+              </div>
+              <button id="btn-add-edu" class="btn btn-sm btn-cyan">
+                <i class="bi bi-plus-lg"></i> Add Education
+              </button>
+            </div>
+
+            <div class="admin-card">
+              <div class="table-responsive">
+                <table class="table admin-table">
+                  <thead>
+                    <tr>
+                      <th>Degree & Field</th>
+                      <th>Institution</th>
+                      <th>Timeline</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-edu-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= TAB: PROFILE & SEO ================= -->
+          <div id="tab-profile" class="admin-tab-pane d-none">
+            <div class="mb-4">
+              <h2 class="h4 fw-bold text-white mb-1">Profile & Website Settings</h2>
+              <p class="text-muted text-sm mb-0">Update personal biography, social profile URLs, and SEO titles.</p>
+            </div>
+
+            <div class="glass-card p-4">
+              <form id="admin-profile-form">
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="form-label text-white text-sm">Full Name</label>
+                    <input type="text" name="displayName" class="form-control form-control-dark" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white text-sm">Professional Title</label>
+                    <input type="text" name="title" class="form-control form-control-dark" required />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label text-white text-sm">Hero Subtitle</label>
+                  <input type="text" name="heroSubtitle" class="form-control form-control-dark" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label text-white text-sm">About Me Bio</label>
+                  <textarea name="about" rows="4" class="form-control form-control-dark"></textarea>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">Email Address</label>
+                    <input type="email" name="email" class="form-control form-control-dark" required />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">Phone Number</label>
+                    <input type="text" name="phone" class="form-control form-control-dark" />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">Location</label>
+                    <input type="text" name="location" class="form-control form-control-dark" />
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">GitHub URL</label>
+                    <input type="url" name="github" class="form-control form-control-dark" />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">LinkedIn URL</label>
+                    <input type="url" name="linkedin" class="form-control form-control-dark" />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">Kaggle URL</label>
+                    <input type="url" name="kaggle" class="form-control form-control-dark" />
+                  </div>
+                </div>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-8">
+                    <label class="form-label text-white text-sm">Profile Avatar Image URL</label>
+                    <input type="text" name="avatarUrl" id="admin-profile-avatarUrl" class="form-control form-control-dark" placeholder="/assets/aistudio/parth_4b9116ca.jpeg" />
+                  </div>
+                  <div class="col-md-4">
+                    <label class="form-label text-white text-sm">Avatar Preview</label>
+                    <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 2px solid var(--admin-cyan);">
+                      <img id="admin-profile-avatar-preview" src="/assets/aistudio/parth_4b9116ca.jpeg" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover; object-position: center 18%;" />
+                    </div>
+                  </div>
+                </div>
+                <div class="row g-3 mb-4">
+                  <div class="col-md-6">
+                    <label class="form-label text-white text-sm">Resume / CV Document URL</label>
+                    <input type="text" name="resumeUrl" class="form-control form-control-dark" placeholder="https://..." />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-white text-sm">Footer Copyright Text</label>
+                    <input type="text" name="footerText" class="form-control form-control-dark" />
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between">
+                  <div id="profile-save-alert" class="d-none"></div>
+                  <button type="submit" class="btn btn-cyan ms-auto">
+                    <i class="bi bi-save"></i> Save Settings
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ================= TAB: MESSAGES ================= -->
+          <div id="tab-messages" class="admin-tab-pane d-none">
+            <div class="mb-4">
+              <h2 class="h4 fw-bold text-white mb-1">Contact Inquiries Inbox</h2>
+              <p class="text-muted text-sm mb-0">Messages submitted by public visitors through the contact form.</p>
+            </div>
+
+            <div id="admin-messages-list">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- 1. Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+          <div class="modal-header modal-header-dark">
+            <h5 class="modal-title fw-bold text-white" id="project-modal-title">Project Details</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="project-form">
+            <div class="modal-body modal-body-dark">
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label text-white text-sm">Project Title *</label>
+                  <input type="text" name="title" class="form-control form-control-dark" required />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Category</label>
+                  <select name="category" class="form-select form-control-dark">
+                    <option value="AI & Machine Learning">AI & Machine Learning</option>
+                    <option value="Full Stack">Full Stack</option>
+                    <option value="Python & Backend">Python & Backend</option>
+                    <option value="Tools & Utilities">Tools & Utilities</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Description *</label>
+                <textarea name="description" rows="3" class="form-control form-control-dark" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Technologies (Comma separated)</label>
+                <input type="text" name="technologies" class="form-control form-control-dark" placeholder="Python, Django, React, PostgreSQL" />
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label text-white text-sm">Thumbnail Image URL</label>
+                  <input type="url" name="imageUrl" id="proj-imageUrl" class="form-control form-control-dark" placeholder="https://..." />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Preview</label>
+                  <div class="admin-image-preview" id="proj-preview-box">
+                    <span class="text-muted text-xs">Preview</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label text-white text-sm">Live Demo URL</label>
+                  <input type="url" name="demoUrl" class="form-control form-control-dark" placeholder="https://..." />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white text-sm">GitHub Repository URL</label>
+                  <input type="url" name="githubUrl" class="form-control form-control-dark" placeholder="https://github.com/..." />
+                </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-4 form-check ps-4 pt-2">
+                  <input type="checkbox" name="isPublished" class="form-check-input" id="proj-isPublished" checked />
+                  <label class="form-check-label text-white text-sm" for="proj-isPublished">Publish on portfolio</label>
+                </div>
+                <div class="col-md-4 form-check ps-4 pt-2">
+                  <input type="checkbox" name="isFeatured" class="form-check-input" id="proj-isFeatured" />
+                  <label class="form-check-label text-white text-sm" for="proj-isFeatured">Featured project</label>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Display Order</label>
+                  <input type="number" name="order" class="form-control form-control-dark" value="1" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer modal-footer-dark">
+              <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-cyan">Save Project</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Certificate Modal -->
+    <div class="modal fade" id="certModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+          <div class="modal-header modal-header-dark">
+            <h5 class="modal-title fw-bold text-white" id="cert-modal-title">Certificate Details</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="cert-form">
+            <div class="modal-body modal-body-dark">
+              <div class="row g-3 mb-3">
+                <div class="col-md-8">
+                  <label class="form-label text-white text-sm">Certificate Title *</label>
+                  <input type="text" name="title" class="form-control form-control-dark" required />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Issuing Body *</label>
+                  <input type="text" name="issuer" class="form-control form-control-dark" placeholder="Coursera / Udemy" required />
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Issue Date</label>
+                  <input type="text" name="issueDate" class="form-control form-control-dark" placeholder="2024" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Credential ID</label>
+                  <input type="text" name="credentialId" class="form-control form-control-dark" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Verification URL</label>
+                  <input type="url" name="verificationUrl" class="form-control form-control-dark" placeholder="https://..." />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Certificate Image URL</label>
+                <input type="url" name="imageUrl" class="form-control form-control-dark" placeholder="https://..." />
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Brief Description</label>
+                <textarea name="description" rows="2" class="form-control form-control-dark"></textarea>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6 form-check ps-4 pt-2">
+                  <input type="checkbox" name="isPublished" class="form-check-input" id="cert-isPublished" checked />
+                  <label class="form-check-label text-white text-sm" for="cert-isPublished">Publish on portfolio</label>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white text-sm">Display Order</label>
+                  <input type="number" name="order" class="form-control form-control-dark" value="1" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer modal-footer-dark">
+              <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-cyan">Save Certificate</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Experience Modal -->
+    <div class="modal fade" id="expModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+          <div class="modal-header modal-header-dark">
+            <h5 class="modal-title fw-bold text-white" id="exp-modal-title">Work Experience</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="exp-form">
+            <div class="modal-body modal-body-dark">
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label text-white text-sm">Job Title *</label>
+                  <input type="text" name="role" class="form-control form-control-dark" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-white text-sm">Organization / Company *</label>
+                  <input type="text" name="company" class="form-control form-control-dark" required />
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Employment Type</label>
+                  <select name="employmentType" class="form-select form-control-dark">
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Freelance">Freelance</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Location</label>
+                  <input type="text" name="location" class="form-control form-control-dark" placeholder="City, Country" />
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label text-white text-sm">Start Date *</label>
+                  <input type="text" name="startDate" class="form-control form-control-dark" placeholder="2024" required />
+                </div>
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label text-white text-sm">End Date</label>
+                  <input type="text" name="endDate" class="form-control form-control-dark" placeholder="2025" />
+                </div>
+                <div class="col-md-6 form-check ps-4 pt-4">
+                  <input type="checkbox" name="isCurrent" class="form-check-input" id="exp-isCurrent" />
+                  <label class="form-check-label text-white text-sm" for="exp-isCurrent">Currently working in this role</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Role Description</label>
+                <textarea name="description" rows="3" class="form-control form-control-dark"></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Technologies Used</label>
+                <input type="text" name="technologies" class="form-control form-control-dark" />
+              </div>
+              <div class="form-check ps-4">
+                <input type="checkbox" name="isPublished" class="form-check-input" id="exp-isPublished" checked />
+                <label class="form-check-label text-white text-sm" for="exp-isPublished">Publish on portfolio</label>
+              </div>
+            </div>
+            <div class="modal-footer modal-footer-dark">
+              <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-cyan">Save Experience</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Skill Modal -->
+    <div class="modal fade" id="skillModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+          <div class="modal-header modal-header-dark">
+            <h5 class="modal-title fw-bold text-white">Add / Edit Skill</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="skill-form">
+            <div class="modal-body modal-body-dark">
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Skill Name *</label>
+                <input type="text" name="name" class="form-control form-control-dark" placeholder="e.g. Docker" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Category</label>
+                <select name="category" class="form-select form-control-dark">
+                  <option value="Languages & Frameworks">Languages & Frameworks</option>
+                  <option value="AI & Data Science">AI & Data Science</option>
+                  <option value="Databases & Cloud">Databases & Cloud</option>
+                  <option value="Developer Tools">Developer Tools</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Bootstrap Icon Class</label>
+                <input type="text" name="iconClass" class="form-control form-control-dark" placeholder="bi-box-seam" />
+                <small class="text-dim text-xs">Browse icons at icons.getbootstrap.com</small>
+              </div>
+              <div class="row g-3">
+                <div class="col-6 form-check ps-4 pt-2">
+                  <input type="checkbox" name="isPublished" class="form-check-input" id="skill-isPublished" checked />
+                  <label class="form-check-label text-white text-sm" for="skill-isPublished">Published</label>
+                </div>
+                <div class="col-6">
+                  <input type="number" name="order" class="form-control form-control-dark" value="1" placeholder="Order" />
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer modal-footer-dark">
+              <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-cyan">Save Skill</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Education Modal -->
+    <div class="modal fade" id="eduModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-content-dark">
+          <div class="modal-header modal-header-dark">
+            <h5 class="modal-title fw-bold text-white">Add Education</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <form id="edu-form">
+            <div class="modal-body modal-body-dark">
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Degree / Qualification *</label>
+                <input type="text" name="degree" class="form-control form-control-dark" placeholder="Bachelor of Engineering" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Field of Study *</label>
+                <input type="text" name="fieldOfStudy" class="form-control form-control-dark" placeholder="Computer Engineering" required />
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Institution *</label>
+                <input type="text" name="institution" class="form-control form-control-dark" required />
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-6">
+                  <label class="form-label text-white text-sm">Start Date</label>
+                  <input type="text" name="startDate" class="form-control form-control-dark" placeholder="2020" />
+                </div>
+                <div class="col-6">
+                  <label class="form-label text-white text-sm">End Date</label>
+                  <input type="text" name="endDate" class="form-control form-control-dark" placeholder="2024" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-white text-sm">Description</label>
+                <textarea name="description" rows="2" class="form-control form-control-dark"></textarea>
+              </div>
+              <div class="form-check ps-4">
+                <input type="checkbox" name="isPublished" class="form-check-input" id="edu-isPublished" checked />
+                <label class="form-check-label text-white text-sm" for="edu-isPublished">Publish</label>
+              </div>
+            </div>
+            <div class="modal-footer modal-footer-dark">
+              <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-cyan">Save Education</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Admin Dashboard Controller -->
+    <script type="module" src="/js/admin.js"></script>
+  </body>
+</html>
